@@ -20,7 +20,7 @@ class MyCalculatorBuntton extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(12.0),
           child: InkWell(
-            onTap: () {},
+            onTap: onPress,
             child: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20), color: buttonColor),

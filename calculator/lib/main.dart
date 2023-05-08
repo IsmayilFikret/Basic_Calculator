@@ -13,6 +13,11 @@ class _MyAppState extends State<MyApp> {
   int? secondNum;
   String history = '';
   String screenDisplay = '';
+  String result = '';
+
+  String operations = '';
+
+  void buttonClick(String btnVal) {}
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +38,7 @@ class _MyAppState extends State<MyApp> {
               child: Container(
                 alignment: const Alignment(1.0, 1.0),
                 child: Text(
-                  '999',
+                  history,
                   style: TextStyle(fontSize: 34, color: Colors.grey.shade300),
                 ),
               ),
@@ -43,7 +48,7 @@ class _MyAppState extends State<MyApp> {
               child: Container(
                 alignment: const Alignment(1.0, 1.0),
                 child: Text(
-                  '999',
+                  screenDisplay,
                   style: TextStyle(fontSize: 52, color: Colors.white),
                 ),
               ),
@@ -66,22 +71,30 @@ class _MyAppState extends State<MyApp> {
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '+/-',
-          onPress: () {},
+          onPress: () {
+            buttonClick('+/-');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '.',
-          onPress: () {},
+          onPress: () {
+            buttonClick('.');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '0',
-          onPress: () {},
+          onPress: () {
+            buttonClick('0');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '=',
-          onPress: () {},
+          onPress: () {
+            buttonClick('=');
+          },
         ),
       ],
     );
@@ -94,22 +107,30 @@ class _MyAppState extends State<MyApp> {
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '1',
-          onPress: () {},
+          onPress: () {
+            buttonClick('1');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '2',
-          onPress: () {},
+          onPress: () {
+            buttonClick('2');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '3',
-          onPress: () {},
+          onPress: () {
+            buttonClick('3');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '/',
-          onPress: () {},
+          onPress: () {
+            buttonClick('/');
+          },
         ),
       ],
     );
@@ -122,22 +143,30 @@ class _MyAppState extends State<MyApp> {
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '4',
-          onPress: () {},
+          onPress: () {
+            buttonClick('4');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '5',
-          onPress: () {},
+          onPress: () {
+            buttonClick('5');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '6',
-          onPress: () {},
+          onPress: () {
+            buttonClick('6');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '*',
-          onPress: () {},
+          onPress: () {
+            buttonClick('*');
+          },
         ),
       ],
     );
@@ -150,22 +179,30 @@ class _MyAppState extends State<MyApp> {
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '7',
-          onPress: () {},
+          onPress: () {
+            buttonClick('7');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '8',
-          onPress: () {},
+          onPress: () {
+            buttonClick('8');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '9',
-          onPress: () {},
+          onPress: () {
+            buttonClick('9');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '-',
-          onPress: () {},
+          onPress: () {
+            buttonClick('-');
+          },
         ),
       ],
     );
@@ -178,22 +215,30 @@ class _MyAppState extends State<MyApp> {
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: 'AC',
-          onPress: () {},
+          onPress: () {
+            buttonClick('AC');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: 'C',
-          onPress: () {},
+          onPress: () {
+            buttonClick('C');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '<',
-          onPress: () {},
+          onPress: () {
+            buttonClick('<');
+          },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
           buttonTitle: '+',
-          onPress: () {},
+          onPress: () {
+            buttonClick('+');
+          },
         ),
       ],
     );
