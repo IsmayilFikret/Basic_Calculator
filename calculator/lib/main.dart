@@ -17,7 +17,9 @@ class _MyAppState extends State<MyApp> {
 
   String operations = '';
 
-  void buttonClick(String btnVal) {}
+  void buttonClick(String btnVal) {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
