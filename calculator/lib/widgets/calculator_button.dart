@@ -1,36 +1,41 @@
 import 'package:flutter/material.dart';
 
-import 'package:google_fonts/google_fonts.dart';
-
-class CaltulatorButton extends StatelessWidget {
-  const CaltulatorButton(
+class MyCalculatorBuntton extends StatelessWidget {
+  const MyCalculatorBuntton(
       {super.key,
-      required this.text,
-      this.fillColor,
-      this.textColor,
-      this.textSize,
-      this.onPress});
-  final String text;
-  final Color? fillColor;
-  final int? textColor;
-  final double? textSize;
-  final VoidCallback? onPress;
+      required this.onPress,
+      required this.buttonTitle,
+      this.fontSize = 36,
+      this.buttonColor});
+
+  final VoidCallback onPress;
+  final double fontSize;
+  final String buttonTitle;
+  final Color? buttonColor;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: fillColor,
-      child: SizedBox(
-          height: 70,
-          width: 70,
-          child: ElevatedButton(
-            onPressed: onPress,
-            child: Text(
-              text,
-              style: GoogleFonts.rubik(
-                textStyle: TextStyle(fontSize: textSize),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: InkWell(
+            onTap: () {},
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20), color: buttonColor),
+              height: 70,
+              width: 70,
+              child: Center(
+                child: Text(
+                  buttonTitle,
+                  style: TextStyle(fontSize: fontSize),
+                ),
               ),
             ),
-          )),
+          ),
+        ),
+      ],
     );
   }
 }
