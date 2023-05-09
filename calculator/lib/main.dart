@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -17,27 +15,59 @@ class _MyAppState extends State<MyApp> {
   String screenDisplay = '';
   String result = '';
 
-  String? operations;
+  String operations = '';
 
   void buttonClick(String btnVal) {
-    setState(() {});
-    if (btnVal == 'AC') {
+    if (btnVal == 'C') {
+      screenDisplay = '';
       firstNum = 0;
       secondNum = 0;
+      result = '';
+    } else if (btnVal == 'AC') {
+      screenDisplay = '';
+      firstNum = 0;
+      secondNum = 0;
+      result = '';
       history = '';
-      screenDisplay = '';
-      result = '';
-    } else if (btnVal == 'C') {
-      firstNum = 0;
-      secondNum = 0;
-      screenDisplay = '';
-      result = '';
     } else if (btnVal == '+' ||
         btnVal == '-' ||
         btnVal == '*' ||
         btnVal == '/') {
-      btnVal = operations!;
+      firstNum = int.parse(screenDisplay);
+      result = '';
+      operations = btnVal;
+    } else if (btnVal == '00') {
+      result = (screenDisplay.toString() + ('00').toString());
+    } else if (btnVal == '<') {
+      result = screenDisplay.substring(0, screenDisplay.length - 1);
+    } else if (btnVal == '=') {
+      secondNum = int.parse(screenDisplay);
+      if (operations == '+') {
+        result = (firstNum! + secondNum!).toString();
+        history =
+            firstNum.toString() + operations.toString() + secondNum.toString();
+      }
+      if (operations == '-') {
+        result = (firstNum! - secondNum!).toString();
+        history =
+            firstNum.toString() + operations.toString() + secondNum.toString();
+      }
+      if (operations == '*') {
+        result = (firstNum! * secondNum!).toString();
+        history =
+            firstNum.toString() + operations.toString() + secondNum.toString();
+      }
+      if (operations == '/') {
+        result = (firstNum! / secondNum!).toString();
+        history =
+            firstNum.toString() + operations.toString() + secondNum.toString();
+      }
+    } else {
+      result = int.parse(screenDisplay + btnVal).toString();
     }
+    setState(() {
+      screenDisplay = result;
+    });
   }
 
   @override
@@ -48,6 +78,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         backgroundColor: Colors.grey,
         appBar: AppBar(
+          centerTitle: true,
           backgroundColor: Colors.blueGrey,
           title: const Text('CALCULATOR'),
         ),
@@ -70,16 +101,13 @@ class _MyAppState extends State<MyApp> {
                 alignment: const Alignment(1.0, 1.0),
                 child: Text(
                   screenDisplay,
-                  style: const TextStyle(fontSize: 52, color: Colors.white),
+                  style: TextStyle(fontSize: 52, color: Colors.white),
                 ),
               ),
             ),
             const Divider(
               color: Colors.white,
               thickness: 2,
-            ),
-            const SizedBox(
-              height: 20,
             ),
             _myRowButton1(),
             _myRowButton2(),
@@ -100,14 +128,14 @@ class _MyAppState extends State<MyApp> {
           buttonColor: Colors.grey.shade300,
           buttonTitle: '+/-',
           onPress: () {
-            buttonClick('+/-');
+            return;
           },
         ),
         MyCalculatorBuntton(
           buttonColor: Colors.grey.shade300,
-          buttonTitle: '.',
+          buttonTitle: '00',
           onPress: () {
-            buttonClick('.');
+            buttonClick('00');
           },
         ),
         MyCalculatorBuntton(
@@ -118,7 +146,7 @@ class _MyAppState extends State<MyApp> {
           },
         ),
         MyCalculatorBuntton(
-          buttonColor: Colors.grey.shade300,
+          buttonColor: Colors.amber.shade300,
           buttonTitle: '=',
           onPress: () {
             buttonClick('=');
@@ -154,7 +182,7 @@ class _MyAppState extends State<MyApp> {
           },
         ),
         MyCalculatorBuntton(
-          buttonColor: Colors.grey.shade300,
+          buttonColor: Colors.amber.shade300,
           buttonTitle: '/',
           onPress: () {
             buttonClick('/');
@@ -190,7 +218,7 @@ class _MyAppState extends State<MyApp> {
           },
         ),
         MyCalculatorBuntton(
-          buttonColor: Colors.grey.shade300,
+          buttonColor: Colors.amber.shade300,
           buttonTitle: '*',
           onPress: () {
             buttonClick('*');
@@ -226,7 +254,7 @@ class _MyAppState extends State<MyApp> {
           },
         ),
         MyCalculatorBuntton(
-          buttonColor: Colors.grey.shade300,
+          buttonColor: Colors.amber.shade300,
           buttonTitle: '-',
           onPress: () {
             buttonClick('-');
@@ -255,14 +283,14 @@ class _MyAppState extends State<MyApp> {
           },
         ),
         MyCalculatorBuntton(
-          buttonColor: Colors.grey.shade300,
+          buttonColor: Colors.amber.shade300,
           buttonTitle: '<',
           onPress: () {
             buttonClick('<');
           },
         ),
         MyCalculatorBuntton(
-          buttonColor: Colors.grey.shade300,
+          buttonColor: Colors.amber.shade300,
           buttonTitle: '+',
           onPress: () {
             buttonClick('+');
