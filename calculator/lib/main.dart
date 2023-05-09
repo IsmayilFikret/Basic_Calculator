@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -15,10 +17,27 @@ class _MyAppState extends State<MyApp> {
   String screenDisplay = '';
   String result = '';
 
-  String operations = '';
+  String? operations;
 
   void buttonClick(String btnVal) {
     setState(() {});
+    if (btnVal == 'AC') {
+      firstNum = 0;
+      secondNum = 0;
+      history = '';
+      screenDisplay = '';
+      result = '';
+    } else if (btnVal == 'C') {
+      firstNum = 0;
+      secondNum = 0;
+      screenDisplay = '';
+      result = '';
+    } else if (btnVal == '+' ||
+        btnVal == '-' ||
+        btnVal == '*' ||
+        btnVal == '/') {
+      btnVal = operations!;
+    }
   }
 
   @override
@@ -51,9 +70,16 @@ class _MyAppState extends State<MyApp> {
                 alignment: const Alignment(1.0, 1.0),
                 child: Text(
                   screenDisplay,
-                  style: TextStyle(fontSize: 52, color: Colors.white),
+                  style: const TextStyle(fontSize: 52, color: Colors.white),
                 ),
               ),
+            ),
+            const Divider(
+              color: Colors.white,
+              thickness: 2,
+            ),
+            const SizedBox(
+              height: 20,
             ),
             _myRowButton1(),
             _myRowButton2(),
