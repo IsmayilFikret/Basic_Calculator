@@ -34,6 +34,7 @@ class _MyAppState extends State<MyApp> {
         btnVal == '*' ||
         btnVal == '/') {
       firstNum = int.parse(screenDisplay);
+
       result = '';
       operations = btnVal;
     } else if (btnVal == '00') {
@@ -101,7 +102,7 @@ class _MyAppState extends State<MyApp> {
                 alignment: const Alignment(1.0, 1.0),
                 child: Text(
                   screenDisplay,
-                  style: TextStyle(fontSize: 52, color: Colors.white),
+                  style: const TextStyle(fontSize: 52, color: Colors.white),
                 ),
               ),
             ),
